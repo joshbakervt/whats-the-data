@@ -35,6 +35,11 @@
     font-size: 100%;
 }
 
+h1 {
+    font-family: var(--copperplate-font);
+    color: var(--color-dark);
+}
+
 .navImage {
     margin: 2px;
     width: 100px;

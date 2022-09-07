@@ -43,8 +43,8 @@ function displayData(data, subject) {
     table += "<tr><td></td><td></td><td>Description</td><td>Study Type</td><td>Size</td><td>Author</td><td>Reference</td></tr>"
 
     for (let i = 0; i < subjectData.length; i++) {
-        var row = "<td><strong><a href=" + subjectData[i].link + " target=\"_blank\">Summary</strong></td>";
-        row += "<td><strong><a href=" + subjectData[i].link + " target=\"_blank\">Pubmed</strong></td>";
+        var row = "<td style='text-decoration: underline'><strong><a href=" + subjectData[i].link + " target=\"_blank\">Summary</strong></td>";
+        row += "<td style='text-decoration: underline'><strong><a href=" + subjectData[i].link + " target=\"_blank\">Pubmed</strong></td>";
         row += "<td>" + subjectData[i].description + "</td>";
         row += "<td>" + subjectData[i].study_type + "</td>";
         row += "<td>" + subjectData[i].size + "</td>";
