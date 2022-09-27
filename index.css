@@ -6,8 +6,6 @@
     --color-mid: red;
     --color-dark: darkblue;
 }
-
-
 /*Class Attributes*/
 
 .title {
@@ -27,6 +25,13 @@
     color: var(--color-mid);
     font-family: var(--arial-font);
     font-size: 150%;
+}
+
+.introductionMessage {
+    font-family: var(--arial-font);
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .title>h5 {
@@ -63,22 +68,23 @@ li {
     font-family: var(--copperplate-font);
 }
 
-a, a:visited {
-    color: inherit;
-    text-decoration: none;
-}
-
 a:hover {
-    color: var(--color-mid);
     transition: .5s;
 }
 
 table {
     font-family: var(--arial-font);
     padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.instructions {
+    text-align: center;
 }
 
 td {
     border-bottom: 1px solid black;
 }
+
 
