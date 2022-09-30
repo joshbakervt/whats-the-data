@@ -18,17 +18,13 @@
             }
         })
         .then(data => {
-            // categories = getCategories(data, 'Cerebrovascular');
-            // mC = document.getElementById('majorCategories');
-            // mC.innerHTML = categories;
-            //
-            // display = displayData(data, 'Cerebrovascular');
-            // lR = document.getElementById('listResources');
-            // lR.innerHTML = display;
-
             categories = getCategories(data, 'Cerebrovascular');
             mC = document.getElementById('majorCategories');
             mC.innerHTML = categories;
+
+            // Iterate through values in categories
+            // While iterating through arrays of display data
+            // While categories still matches list data, continue displaying data
 
             listOfCategories = getCategoriesAsText(data, 'Cerebrovascular');
             display = displayData(data, 'Cerebrovascular', listOfCategories);

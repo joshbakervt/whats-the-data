@@ -64,6 +64,37 @@ function getResponse() {
 //     // cD.innerHTML = JSON.stringify(cerebrovascularData[0]);
 // }
 
+function getSortedData(data, subject) {
+    // Creating a table of links to html ids
+    // For each id, create a div with a sticky header and a table of data
+    // For each study, create a link to open a new tab
+    var uniqueCategories = [];
+    var studiesTable = []
+    var categoryTable = "<table>";
+    var elementsTable = "<div><h1>";
+
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].subject == subject) {
+            if (uniqueCategories.includes(data[i].region, 0) == false){
+                uniqueCategories.push(data[i].region);
+            }
+            // Going to add all data as hyperlink to id element
+            // Define sticky header as id using return function
+        }
+    }
+    uniqueCategories.sort();
+
+    for (let i = 0; i < uniqueCategories.length; i++) {
+        var row = "<td><strong><a href=#" + i + ">" + uniqueCategories[i] + "</strong></td>";
+        table += row + "</tr>";
+    }
+
+    return(table + "</table>");
+
+
+
+}
+
 function getCategoriesAsText(data, subject) {
     var categoriesText = [];
 
@@ -88,12 +119,14 @@ function getCategories(data, subject) {
             if (uniqueCategories.includes(data[i].region, 0) == false){
                 uniqueCategories.push(data[i].region);
             }
-            // subjectCategories.push(data[i].region);
+            // Going to add all data as hyperlink to id element
+            // Define sticky header as id using return function
         }
     }
+    uniqueCategories.sort();
 
     for (let i = 0; i < uniqueCategories.length; i++) {
-        var row = "<td><strong><a href=" + uniqueCategories[i] + " target=\"_blank\">" + uniqueCategories[i] + "</strong></td>";
+        var row = "<td><strong><a href=#" + i + ">" + uniqueCategories[i] + "</strong></td>";
         table += row + "</tr>";
     }
 
