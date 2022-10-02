@@ -18,18 +18,19 @@
             }
         })
         .then(data => {
-            categories = getCategories(data, 'Cerebrovascular');
+            // categories = getCategories(data, 'Cerebrovascular');
+            allRetrievedData = retrieveAllData(data, 'Cerebrovascular');
             mC = document.getElementById('majorCategories');
-            mC.innerHTML = categories;
+            mC.innerHTML = allRetrievedData;
 
             // Iterate through values in categories
             // While iterating through arrays of display data
             // While categories still matches list data, continue displaying data
 
-            listOfCategories = getCategoriesAsText(data, 'Cerebrovascular');
-            display = displayData(data, 'Cerebrovascular', listOfCategories);
-            lR = document.getElementById('listResources');
-            lR.innerHTML = display;
+            // listOfCategories = getCategoriesAsText(data, 'Cerebrovascular');
+            // display = displayData(data, 'Cerebrovascular', listOfCategories);
+            // lR = document.getElementById('listResources');
+            // lR.innerHTML = display;
         })
         .catch((error) => console.error("FETCH ERROR:", error));
 
