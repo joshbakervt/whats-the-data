@@ -65,7 +65,7 @@ function getResponse() {
 // }
 
 
-function retrieveAllData(data, subject) {
+function retrieveAllData1(data, subject) {
     // A dictionary of regions to id values
     let regionDict = new Map();
     // A dictionary of currentIDs to data displays
@@ -103,7 +103,7 @@ function retrieveAllData(data, subject) {
     }
 }
 
-function addToRegionLinks(regionLinks, region, currentID) {
+function addToRegionLinks1(regionLinks, region, currentID) {
     // Add a table element with a link to id of currentID
     regionLinks +=("<tr><td><a href='#" + currentID + "'> " + region + "</a></tr></td>");
     return regionLinks;
