@@ -23,8 +23,8 @@ function retrieveAllData(data, subject) {
         if(data[i].subject == subject) {
             // If the region exists in regionIdDict, then it is already in regionLinksAsHTML
             if(regionIdDict.has(data[i].region)) {
-                // So all we have to do is add it to allStudyDataAsHTML and allDataAsTableDict
-                //////////////////////////// FINISH THIS ///////////////////////////////////
+                // So all we have to do is update allDataAsTableDict with the appended HTML row for the region id
+                allDataAsTableDict.set(currentID, addToExistingRegionTableElement(regionIdDict.get(data[i].region), data[i]));
             }
             // If not, then we need to add it to both tables
             else {
@@ -34,11 +34,16 @@ function retrieveAllData(data, subject) {
                 regionLinksAsHTML = addRegionLink(regionLinksAsHTML, regionIdDict.get(data[i].region), currentID)
                 // Create a new pair in allDataAsTableDict like so: { currentID: (dataAtI as HTML row) }
                 allDataAsTableDict.set(currentID, addFirstRegionTableElement(currentID, data[i]));
+                currentID += 1;
             }
         }
     }
     // Add all values in allDataAsTableDict to allStudyDataAsHTML
-
+    allDataAsHTML += regionLinksAsHTML;
+    for(let key of allStudyDataAsHTML.keys) {
+        console.log(key);
+        allDataAsHTML += key;
+    }
 
     return allDataAsHTML;
 }
