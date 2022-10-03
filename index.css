@@ -68,8 +68,8 @@ li {
     font-family: var(--copperplate-font);
 }
 
-a:hover {
-    transition: .5s;
+a:visited {
+    color: inherit;
 }
 
 table {
@@ -81,6 +81,11 @@ table {
 
 .instructions {
     text-align: center;
+}
+
+.regionHeader {
+    margin-left: auto;
+    margin-right: auto
 }
 
 td {
