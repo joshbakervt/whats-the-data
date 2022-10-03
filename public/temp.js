@@ -29,6 +29,7 @@ function retrieveAllData(data, subject) {
             // If not, then we need to add it to both tables
             else {
                 // Assign an HTML id to the region of study
+                console.log("Setting ", data[i].region, ' to ', currentID);
                 regionIdDict.set(data[i].region, currentID);
                 // And add both the key and value pairs to regionLinksAsHTML
                 regionLinksAsHTML = addRegionLink(regionLinksAsHTML, regionIdDict.get(data[i].region), currentID)
