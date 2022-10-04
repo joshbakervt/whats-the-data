@@ -1,98 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../index.css">
-    <script src="index.js"></script>
     <title>What's The Data?</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="index.js"></script>
+
 </head>
 <body>
 
-
-
-<div class="title">
-    <h1>What's The Data?</h1>
-    <h3>Web Resource</h3>
-    <h5>A compilation of important literature in neurosurgery, neurology and associated specialties</h5>
-</div>
-
-<div class="introductionMessage">
-    <p>
-        Welcome to the <strong>What’s the Data? Web Resource,</strong> a curated collection of clinical literature pertaining to
-        neurosurgery, neuro-oncology, spinal surgery, stroke neurology, and other related disciplines.  Here you will
-        find an organized repository of many of the higher quality studies that help to shape medical practice, along
-        with links to relevant Pubmed entries.  <strong>This site is not, and is not intended to be, comprehensive.  Important
-        studies may be excluded, and studies that are included may have been superseded by newer information.  Therefore,
-        this site should not be used in connection with the day-to-day practice of medicine, and the authors assume no
-        responsibility for its misuse in this way. </strong> The authors hope that this resource may provide a useful framework
-        for educators seeking to foster critical thinking and learners who desire a deeper understanding than clinical
-        guidelines can provide.
-        <br><br>
-        iPhone users are invited to investigate the suite of What’s the Data? Apps available on Apple App Store, which provide helpful summaries of these studies in a quick and easy-to-read format.
-    </p>
-</div>
-<div class="indexMetrics">
-    <p> #value total resources</p>
-    <p> total visitors </p>
-</div>
-
-    <div>
-        <p>Reference counter and site counter here</p>
+<div class="container">
+    <div class="jumbotron centered clearfix content-heading copperplate">
+    <img class="pull-left img-rounded" src="../../src/assets/title_img.png">
+    <h1>What's the Data?</h1>
+    <h2>Web Resource</h2>
+    <h3>A compilation of important literature in neurosurgery, neurology and associated specialties</h3>
     </div>
-<nav>
-    <ul class="indexNav">
-        <li id="cerebrovascular" >
-            <img src="../src/assets/cerebrovascular_img.png" class="navImage">
-            <a href="../src/components/cerebrovascular.html">Cerebrovascular & Stroke</a>
-        </li>
-        <li id="epilepsy">
-            <img src="../src/assets/epilepsy_img.png" class="navImage">
-            <a href="../src/components/epilepsy.html">Epilepsy</a>
-        </li>
-        <li id="functional">
-            <img src="../src/assets/functional_img.png" class="navImage">
-            <a href="../src/components/functional.html">Functional & Stereotactic</a>
-        </li>
-        <li id="general">
-            <img src="../src/assets/general_img.png" class="navImage">
-            <a href="../src/components/general.html">General Neurosurgery</a>
-        </li>
-        <li id="pain">
-            <img src="../src/assets/pain_img.png" class="navImage">
-            <a href="../src/components/pain.html">Pain</a>
-        </li>
-        <li id="pediatric">
-            <img src="../src/assets/pediatric_img.png" class="navImage">
-            <a href="../src/components/pediatric.html">Pediatric & Hydrocephalus</a>
-        </li>
-        <li id="peripheral">
-            <img src="../src/assets/peripheral_img.png" class="navImage">
-            <a href="../src/components/peripheral.html">Peripheral Nerve</a>
-        </li>
-        <li id="spine">
-            <img src="../src/assets/spine_img.png" class="navImage">
-            <a href="../src/components/spine.html">Spine</a>
-        </li>
-        <li id="trauma">
-            <img src="../src/assets/trauma_img.png" class="navImage">
-            <a href="../src/components/trauma.html">Trauma & Critical Care</a>
-        </li>
-        <li id="tumor">
-            <img src="../src/assets/tumor_img.png" class="navImage">
-            <a href="../src/components/tumor.html">Tumor</a>
-        </li>
-    </ul>
-</nav>
 
+    <script>
+        fetch("https://gliui2ynyk.execute-api.us-east-1.amazonaws.com/default/getCerebrovascularData")
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error("NETWORK RESPONSE ERROR");
+                }
+            })
+            .then(data => {
+                var allRetrievedData = getResources(data);
+                mC = document.getElementById('numResources');
+                mC.innerHTML = "<h4>" +  allRetrievedData + " resources </h4>";
+            })
+            .catch((error) => console.error("FETCH ERROR:", error));
+    </script>
 
+<!--    <div class="container centered">-->
+<!--        <p class="welcomeText">Welcome to the <strong>What’s the Data? Web Resource,</strong> a curated collection of-->
+<!--            clinical literature pertaining to neurosurgery, neuro-oncology, spinal surgery, stroke neurology, and other-->
+<!--            related disciplines.  Here you will find an organized repository of many of the higher quality studies that-->
+<!--            help to shape medical practice, along with links to relevant Pubmed entries.-->
+<!--                <strong>-->
+<!--                    This site is not, and-->
+<!--                    is not intended to be, comprehensive.  Important-->
+<!--                    studies may be excluded, and studies that are included may have been superseded by newer information.  Therefore,-->
+<!--                    this site should not be used in connection with the day-to-day practice of medicine, and the authors assume no-->
+<!--                    responsibility for its misuse in this way.-->
+<!--                </strong>-->
+<!--            The authors hope that this resource may provide a useful framework-->
+<!--            for educators seeking to foster critical thinking and learners who desire a deeper understanding than clinical-->
+<!--            guidelines can provide.-->
+<!--            <br><br>-->
+<!--            iPhone users are invited to investigate the suite of What’s the Data? Apps available on Apple App Store,-->
+<!--            which provide helpful summaries of these studies in a quick and easy-to-read format.-->
+<!--        </p>-->
+<!--    </div>-->
+    <div class="container">
+        <nav>
+            <ul class="indexNav">
+                <li id="cerebrovascular" >
+                    <img src="../src/assets/cerebrovascular_img.png" class="navImage img-rounded">
+                    <a href="../src/components/cerebrovascular.html" class="menuText">Cerebrovascular & Stroke</a>
+                </li>
+                <li id="epilepsy">
+                    <img src="../src/assets/epilepsy_img.png" class="navImage img-rounded">
+                    <a href="../src/components/epilepsy.html" class="menuText">Epilepsy</a>
+                </li>
+                <li id="functional">
+                    <img src="../src/assets/functional_img.png" class="navImage img-rounded">
+                    <a href="../src/components/functional.html" class="menuText">Functional & Stereotactic</a>
+                </li>
+                <li id="general">
+                    <img src="../src/assets/general_img.png" class="navImage img-rounded">
+                    <a href="../src/components/general.html" class="menuText">General Neurosurgery</a>
+                </li>
+                <li id="pain">
+                    <img src="../src/assets/pain_img.png" class="navImage img-rounded">
+                    <a href="../src/components/pain.html" class="menuText">Pain</a>
+                </li>
+                <li id="pediatric">
+                    <img src="../src/assets/pediatric_img.png" class="navImage img-rounded">
+                    <a href="../src/components/pediatric.html" class="menuText">Pediatric & Hydrocephalus</a>
+                </li>
+                <li id="peripheral">
+                    <img src="../src/assets/peripheral_img.png" class="navImage img-rounded">
+                    <a href="../src/components/peripheral.html" class="menuText">Peripheral Nerve</a>
+                </li>
+                <li id="spine">
+                    <img src="../src/assets/spine_img.png" class="navImage img-rounded">
+                    <a href="../src/components/spine.html" class="menuText">Spine</a>
+                </li>
+                <li id="trauma">
+                    <img src="../src/assets/trauma_img.png" class="navImage img-rounded">
+                    <a href="../src/components/trauma.html" class="menuText">Trauma & Critical Care</a>
+                </li>
+                <li id="tumor">
+                    <img src="../src/assets/tumor_img.png" class="navImage img-rounded">
+                    <a href="../src/components/tumor.html" class="menuText">Tumor</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="well centered" id="numResources">
 
-<footer>
-    <p>
-    <h3>TODO: Footer implementation</h3>
-    </p>
-</footer>
+        </div>
+        <div class="well centered">
+            * This application currently contains XXX references.
+            ** Easy-to-use summaries for all references are also available through the suite of What’s the data? iPhone
+            applications, available on Apple’s App Store.
+        </div>
+        <div class="well centered">
+            Attributions
+            Image of the stereotactic apparatus of Spiegel and Wycis is a derivative of a graphic published by P.
+            Grunert, et al, From the Idea to Its Realization: The Evolution of Minimally Invasive Techniques in
+            Neurosurgery. Minimally Invasive Surgery, Volume 2013, Article ID 171369, used under CC BY. Image licensed
+            under CC BY by Limbix LLC.
 
+            CT scan image is a derivative of a graphic published by Hao Chen, et al, Progressive Epidural Hematoma in
+            Patients with Head Trauma: Incidence, Outcome, and Risk Factors. Emergency Medicine International, Volume
+            2012, Article ID 134905, used under CC BY. Image licensed under CC BY by Limbix LLC.
+        </div>
+    </div>
+</div>
 
 
 </body>
-</html>

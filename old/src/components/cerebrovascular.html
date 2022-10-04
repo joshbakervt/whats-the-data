@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cerebrovascular & Stroke</title>
+    <link rel="stylesheet" href="../../index.css">
+    <script src="../../public/index.js"></script>
+</head>
+<body>
+
+<script>
+    fetch("https://gliui2ynyk.execute-api.us-east-1.amazonaws.com/default/getCerebrovascularData")
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error("NETWORK RESPONSE ERROR");
+            }
+        })
+        .then(data => {
+            var allRetrievedData = retrieveAllData(data, 'Cerebrovascular');
+            mC = document.getElementById('majorCategories');
+            mC.innerHTML = allRetrievedData;
+
+            // Iterate through values in categories
+            // While iterating through arrays of display data
+            // While categories still matches list data, continue displaying data
+
+            // listOfCategories = getCategoriesAsText(data, 'Cerebrovascular');
+            // display = displayData(data, 'Cerebrovascular', listOfCategories);
+            // lR = document.getElementById('listResources');
+            // lR.innerHTML = display;
+        })
+        .catch((error) => console.error("FETCH ERROR:", error));
+
+</script>
+
+<h1 class="cerebrovascular">Cerebrovascular & Stroke</h1>
+
+
+<div class="instructions">
+
+<h4><u>Click on Summary for a brief synopsis</u></h4>
+<h4><u>Click on Pubmed for an online abstract</u></h4>
+<p></p>
+
+<h3 class="listInstruction"> Major categories (click to jump to category):</h3>
+<div id="majorCategories" class="categoryTable">
+
+</div>
+
+<p></p>
+
+<div id="listResources" class="listResources">
+
+</div>
+</div>
+</body>
+
+

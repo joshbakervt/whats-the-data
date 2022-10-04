@@ -1,0 +1,95 @@
+
+:root {
+    --arial-font: "Arial";
+    --copperplate-font: Copperplate, "Copperplate Gothic Light";
+    --color-bright: yellow;
+    --color-mid: red;
+    --color-dark: darkblue;
+}
+/*Class Attributes*/
+
+.title {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    text-align: center;
+    background: darkblue;
+}
+
+.title>h1 {
+    color: var(--color-bright);
+    font-size: 300%;
+    font-family: var(--copperplate-font);
+}
+
+.title>h3 {
+    color: var(--color-mid);
+    font-family: var(--arial-font);
+    font-size: 150%;
+}
+
+.introductionMessage {
+    font-family: var(--arial-font);
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.title>h5 {
+    color: var(--color-bright);
+    font-family: var(--arial-font);
+    font-size: 100%;
+}
+
+h1 {
+    font-family: var(--copperplate-font);
+    color: var(--color-dark);
+}
+
+.navImage {
+    margin: 2px;
+    width: 100px;
+    height: 100px;
+    margin-right: 5%;
+}
+
+.categoryTable {
+    margin-left: auto;
+    margin-right: auto
+}
+
+li {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    font-size: 40px;
+    margin-top: 40px;
+    position: relative;
+    color: var(--color-dark);
+    font-family: var(--copperplate-font);
+}
+
+a:visited {
+    color: inherit;
+}
+
+table {
+    font-family: var(--arial-font);
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.instructions {
+    text-align: center;
+}
+
+.regionHeader {
+    margin-left: auto;
+    margin-right: auto
+}
+
+td {
+    border-bottom: 1px solid black;
+}
+
+
