@@ -4,4 +4,6 @@ What's the Data? Is a web resource for neuroscience students to access 2000+ Pub
 - HTML, Bootstrap CSS, Javascript frontend 
 - AWS backend incorporating DynamoDB, S3, Lambda and API gatewat
 
-https://github.com/joshbakervt/whats-the-data/blob/main/data_viewing.png
+![Alt text](home_page.png "Optional title")
+![Alt text](cerebrovascular.png "Optional title")
+![Alt text](data_viewing.png "Optional title")
