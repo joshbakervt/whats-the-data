@@ -6,6 +6,10 @@
     --color-mid: red;
     --color-dark: darkblue;
 }
+
+.wtd {
+    font-family: var(--copperplate-font);
+}
 /*Class Attributes*/
 
 /*.title {*/
