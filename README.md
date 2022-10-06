@@ -5,7 +5,7 @@ What's the Data? Is a web resource for neuroscience students to access 2000+ Pub
 - AWS backend incorporating DynamoDB, S3, Lambda and API gatewat
 
 
-![Alt text](home_page.png)
-![Alt text](cerebrovascular.png)
-![Alt text](data_viewing.png)
-![Alt text](architecture.png)
+![Alt text](src/assets/readme_img/home_page.png)
+![Alt text](src/assets/readme_img/cerebrovascular.png)
+![Alt text](src/assets/readme_img/data_viewing.png)
+![Alt text](src/assets/readme_img/architecture.png)
