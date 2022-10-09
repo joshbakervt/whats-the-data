@@ -14,11 +14,14 @@
 <body>
 
 <div class="container">
-    <div class="jumbotron centered clearfix content-heading copperplate">
+    <div class="jumbotron centered clearfix content-heading copperplate title">
     <img class="pull-left img-rounded" src="../../src/assets/title_img.png">
-    <h1>What's the Data?</h1>
-    <h2>Web Resource</h2>
-    <h3>A compilation of important literature in neurosurgery, neurology and associated specialties</h3>
+        <div class="container wtd">
+            <h1>WHAT'S THE DATA<span style="color: red;" class="question">?</span></h1>
+            <h2>Web Resource</h2>
+            <h3>A compilation of important literature in neurosurgery, neurology and associated specialties</h3>
+        </div>
+
     </div>
 
     <script>
@@ -33,7 +36,7 @@
             .then(data => {
                 var allRetrievedData = getResources(data);
                 mC = document.getElementById('numResources');
-                mC.innerHTML = "<h4>" +  allRetrievedData + " resources </h4>";
+                mC.innerHTML = allRetrievedData;
             })
             .catch((error) => console.error("FETCH ERROR:", error));
     </script>
@@ -103,11 +106,8 @@
                 </li>
             </ul>
         </nav>
-        <div class="well centered" id="numResources">
-
-        </div>
         <div class="well centered">
-            * This application currently contains XXX references.
+            * This application currently contains <span id="numResources"></span> references. <br>
             ** Easy-to-use summaries for all references are also available through the suite of What’s the data? iPhone
             applications, available on Apple’s App Store.
         </div>

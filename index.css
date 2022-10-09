@@ -1,59 +1,83 @@
 
 :root {
     --arial-font: "Arial";
-    --copperplate-font: Copperplate, "Copperplate Gothic Light";
-    --color-bright: yellow;
-    --color-mid: red;
-    --color-dark: darkblue;
+    --copperplate-font: "Copperplate Gothic Bold";
+    --cerebrovascular-bg: #95d6DD;
+    --epilepsy-bg: #E8F0B4;
+    --functional-bg: #9ACC81;
+    --general-bg: #DDD3C2;
+    --pain-bg: #D9CDA0;
+    --pediatric-bg: #D6CFBB;
+    --peripheral-bg: #FEAC77;
+    --spine-bg: #FEFD00;
+    --title-bg: #091584;
+    --trauma-bg: #21489C;
+    --tumor-bg: #FB13F5;
+
+
 }
 
 .wtd {
     font-family: var(--copperplate-font);
 }
+
+.preline {
+    white-space: pre-line;
+}
 /*Class Attributes*/
 
-/*.title {*/
-/*    padding-top: 2%;*/
-/*    padding-bottom: 2%;*/
-/*    text-align: center;*/
-/*    background: darkblue;*/
-/*}*/
+.cerebrovascular {
+    background: var(--cerebrovascular-bg);
+}
 
-/*.title>h1 {*/
-/*    color: var(--color-bright);*/
-/*    font-size: 300%;*/
-/*    font-family: var(--copperplate-font);*/
-/*}*/
+.epilepsy {
+    background: var(--epilepsy-bg);
+}
 
-/*.title>h3 {*/
-/*    color: var(--color-mid);*/
-/*    font-family: var(--arial-font);*/
-/*    font-size: 150%;*/
-/*}*/
+.functional {
+    background: var(--functional-bg);
+}
 
-/*.introductionMessage {*/
-/*    font-family: var(--arial-font);*/
-/*    text-align: center;*/
-/*    margin-left: 10%;*/
-/*    margin-right: 10%;*/
-/*}*/
+.general {
+    background: var(--general-bg);
+}
 
-/*.title>h5 {*/
-/*    color: var(--color-bright);*/
-/*    font-family: var(--arial-font);*/
-/*    font-size: 100%;*/
-/*}*/
+.pain {
+    background: var(--pain-bg);
+}
 
-/*h1 {*/
-/*    font-family: var(--copperplate-font);*/
-/*    color: var(--color-dark);*/
-/*}*/
+.pediatric {
+    background: var(--pediatric-bg);
+}
 
+.peripheral {
+    background: var(--peripheral-bg);
+}
+.spine {
+    background: var(--spine-bg);
+}
+.title {
+    background: var(--title-bg);
+    color: white;
+}
+
+.trauma {
+    background: var(--trauma-bg);
+}
+
+.tumor {
+    background: var(--tumor-bg);
+}
 .navImage {
     margin: 2px;
     width: 100px;
     height: 100px;
     margin-right: 5%;
+}
+
+.question {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
 }
 
 /*.categoryTable {*/

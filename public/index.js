@@ -27,6 +27,7 @@ function retrieveAllData(data, subject) {
         "SC": "Basic Science",
         "RCT": "RCT"
     }
+
     var longFormStudyType;
     // Iterate through all of data
     for (let i = 0; i < data.length; i++) {
@@ -78,7 +79,7 @@ function retrieveAllData(data, subject) {
                         </td>\
                     </tr>\
                     <tr>\
-                        <td>" + summary + "</td>\
+                        <td class='preline'>" + summary + "</td>\
                     </tr>\
                     <tr>\
                         <td>\
@@ -86,7 +87,7 @@ function retrieveAllData(data, subject) {
                         </td>\
                     </tr>\
                     <tr>\
-                        <td>" + data[i].inclusion + "</td>\
+                        <td class='preline'>" + data[i].inclusion + "</td>\
                     </tr>\
                     <tr>\
                         <td>\
@@ -94,7 +95,7 @@ function retrieveAllData(data, subject) {
                         </td>\
                     </tr>\
                     <tr>\
-                        <td>" + data[i].exclusion + "</td>\
+                        <td class='preline'>" + data[i].exclusion + "</td>\
                     </tr>\
                     <tr>\
                         <td>\
@@ -102,15 +103,15 @@ function retrieveAllData(data, subject) {
                         </td>\
                     </tr>\
                     <tr>\
-                        <td>" + data[i].design_intervention + "</td>\
+                        <td class='preline'>" + data[i].design_intervention + "</td>\
                     </tr>\
                     <tr>\
                         <td>\
-                            <h4><strong>Follow Up</strong></h4>\
+                            <h4 ><strong>Follow Up</strong></h4>\
                         </td>\
                     </tr>\
                     <tr>\
-                        <td>" + data[i].follow_up + "</td>\
+                        <td class='preline'>" + data[i].follow_up + "</td>\
                     </tr>\
                     <tr>\
                         <td>\
@@ -118,7 +119,7 @@ function retrieveAllData(data, subject) {
                         </td>\
                     </tr>\
                     <tr>\
-                        <td>" + data[i].results + "</td>\
+                        <td class='preline'>" + data[i].results + "</td>\
                     </tr>\
                 </table></td></tr>");
             studyDataMap.set(strippedRegion, (studyDataMap.get(strippedRegion) + studiesAsHTML));
