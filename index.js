@@ -118,7 +118,7 @@ function displayData(data) {
         studiesAsHTML = (
             // "<tr><td style='text-decoration: underline'><strong><a href=" + data[i].link + " target=\"_blank\">Summary</strong></td> \
             "<tr><td><button data-toggle='collapse' data-target='#" + (contentID.toString() + "collapse") + "'>Summary</button></td> \
-            <td><a href='summary.php?allData=1234' target='_blank'><span class='glyphicon glyphicon-new-window'></span></a></td>\
+            <td><a href='summary.php?allData=123' target='_blank'><span class='glyphicon glyphicon-new-window'></span></a></td>\
             <td style='text-decoration: underline'><strong><a href=" + Object.values(data[i].link) + " target=\"_blank\">Pubmed</strong></td>\
             <td>" + Object.values(data[i].description) + "</td>\
             <td>" + longFormStudyType + "</td>\
