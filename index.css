@@ -113,11 +113,6 @@ li {
     margin: 10px;
 }
 
-th {
-    position: sticky;
-    top: 0;
-}
-
 table {
     font-family: var(--arial-font);
     padding: 5px;
@@ -130,8 +125,10 @@ table {
 }
 
 .regionHeader {
-    margin-left: auto;
-    margin-right: auto
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    width: 100%;
+    background-color: #f8f9fa;
 }
 .titleImg {
     height: 15vw;
@@ -142,7 +139,7 @@ table {
 th {
     position: sticky;
     top: 0;
-    background-color: 	#f8f9fa;
+    background-color: #f8f9fa;
 }
 
 .centered {
@@ -159,8 +156,10 @@ th {
 }
 
 .menuText {
-    /*font-size: 2em;*/
-    font-size: 3vw;
+    /*font-size: 3vw;*/
+    /*min-font-size: 32px;*/
+    /*font-size: 3vw;*/
+    font-size:calc(16px + 1.6vw);
 }
 
 

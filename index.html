@@ -88,8 +88,11 @@
         </nav>
         <div class="well centered">
             * This application currently contains <span id="numResources"></span> references. <br>
-            ** Easy-to-use summaries for all references are also available through the suite of <u>What’s the Data?</u> iPhone
-            applications, available on Apple’s App Store.
+            ** Easy-to-use summaries for all references are also available through the suite of
+            <a href="https://apps.apple.com/us/developer/limbix-llc/id490505327" target="_blank" rel="noreferrer noopener">
+                <u>What’s the Data?</u>
+            </a>
+             iPhone applications, available on Apple’s App Store.
         </div>
         <div class="well centered">
             Attributions
@@ -102,6 +105,31 @@
             Patients with Head Trauma: Incidence, Outcome, and Risk Factors. Emergency Medicine International, Volume
             2012, Article ID 134905, used under CC BY. Image licensed under CC BY by Limbix LLC.
         </div>
+        <div class="well centered">
+            <script>
+                fetch("https://165bj2twte.execute-api.us-east-1.amazonaws.com/default/visitCountApi")
+                    .then((response) => {
+                        if (response.ok) {
+                            return response.json();
+                        } else {
+                            throw new Error("NETWORK RESPONSE ERROR");
+                        }
+                    })
+                    .then(data => {
+                        console.log(data);
+                        displayVisitCount(data)
+                    })
+                    .catch((error) => console.error("FETCH ERROR:", error));
+
+                function displayVisitCount(data) {
+                    const displayData = document.getElementById('visitor-number');
+                    displayData.innerHTML = data;
+                }
+            </script>
+            You are visitor #<span id="visitor-number"></span>
+        </div>
+
+
     </div>
 </div>
 

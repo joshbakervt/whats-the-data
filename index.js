@@ -118,79 +118,13 @@ function displayData(data) {
         studiesAsHTML = (
             // "<tr><td style='text-decoration: underline'><strong><a href=" + data[i].link + " target=\"_blank\">Summary</strong></td> \
             "<tr><td><button data-toggle='collapse' data-target='#" + (contentID.toString() + "collapse") + "'>Summary</button></td> \
-            <td><a href='summary.html' target='_blank'><span class='glyphicon glyphicon-new-window'></span></a></td>\
+            <td><a href='summary.php?allData=1234' target='_blank'><span class='glyphicon glyphicon-new-window'></span></a></td>\
             <td style='text-decoration: underline'><strong><a href=" + Object.values(data[i].link) + " target=\"_blank\">Pubmed</strong></td>\
             <td>" + Object.values(data[i].description) + "</td>\
             <td>" + longFormStudyType + "</td>\
             <td> n=" + Object.values(data[i].size) + "</td>\
             <td>" + Object.values(data[i].author) + "</td>\
             <td>" + Object.values(data[i].reference) + "</td></tr>" + summaryAsHTML);
-            // <tr id='" + (contentID.toString() + "collapse") + "'class='collapse'><td colspan='7'>"
-            // "<table>\
-            //     <tr>\
-            //         <td>\
-            //             <h4 class='pull-left' style='text-align: left'><strong>" +
-            // Object.values(data[i].author) + ", " + Object.values(data[i].reference) + " (" + longFormStudyType + ", n=" +
-            // Object.values(data[i].size) + ")"
-            // + "</strong></h4>\
-            //             </td>\
-            //         </tr>\
-            //         <tr>\
-            //             <td>\
-            //                 <h4><strong>Summary</strong></h4>\
-            //             </td>\
-            //         </tr>\
-            //         <tr>\
-            //             <td class='preline' style='text-align: left'><strong>" + summary + "</strong></td>\
-            //         </tr>\
-            //         <tr>\
-            //             <td>\
-            //                 <h4><strong>Inclusion Criteria</strong></h4>\
-            //             </td>\
-            //         </tr>\
-            //         <tr>\
-            //             <td class='preline' style='text-align: left'>" + Object.values(data[i].inclusion) + "</td>\
-            //         </tr>\
-            //         <tr>\
-            //             <td>\
-            //                 <h4><strong>Exclusion Criteria</strong></h4>\
-            //             </td>\
-            //         </tr>\
-            //         <tr>\
-            //             <td class='preline' style='text-align: left'>" + Object.values(data[i].exclusion) + "</td>\
-            //         </tr>\
-            //         <tr>\
-            //             <td>\
-            //                 <h4><strong>Design/Intervention</strong></h4>\
-            //             </td>\
-            //         </tr>\
-            //         <tr>\
-            //             <td class='preline' style='text-align: left'>" + Object.values(data[i].design_intervention) + "</td>\
-            //         </tr>\
-            //         <tr>\
-            //             <td>\
-            //                 <h4 ><strong>Follow Up</strong></h4>\
-            //             </td>\
-            //         </tr>\
-            //         <tr>\
-            //             <td class='preline' style='text-align: left'>" + Object.values(data[i].follow_up) + "</td>\
-            //         </tr>\
-            //         <tr>\
-            //             <td>\
-            //                 <h4><strong>Results</strong></h4>\
-            //             </td>\
-            //         </tr>\
-            //         <tr>\
-            //             <td class='preline' style='text-align: left'>" + Object.values(data[i].results) + "</td>\
-            //         </tr>\
-            //         \<tr>\
-            //             <td class='preline' style='text-align: left'>&nbsp</td>\
-            //         </tr>\
-            //         <tr>\
-            //             <td class='preline' style='text-align: left'>&nbsp</td>\
-            //         </tr>\
-            //     </table>"
-            // + "</td></tr>"
         studyDataMap.set(strippedRegion, (studyDataMap.get(strippedRegion) + studiesAsHTML));
         contentID += 1;
         // For each element in studyDataHTML, don't forget to add a table
