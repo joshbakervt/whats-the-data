@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>What's The Data?</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="index.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="jumbotron centered clearfix content-heading copperplate title">
+    <img class="pull-left img-rounded" src="title_img.png">
+        <div class="container wtd">
+            <h1>WHAT'S THE DATA<span style="color: red;" class="question">?</span></h1>
+            <h2>Web Resource</h2>
+            <h3>A compilation of important literature in neurosurgery, neurology and associated specialties</h3>
+        </div>
+
+    </div>
+
+    <script>
+        fetch("https://gliui2ynyk.execute-api.us-east-1.amazonaws.com/default/getCerebrovascularData")
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error("NETWORK RESPONSE ERROR");
+                }
+            })
+            .then(data => {
+                var allRetrievedData = getResources(data);
+                mC = document.getElementById('numResources');
+                mC.innerHTML = allRetrievedData;
+            })
+            .catch((error) => console.error("FETCH ERROR:", error));
+    </script>
+
+    <div class="container">
+        <nav>
+            <ul class="indexNav">
+                <li id="cerebrovascular" >
+                    <img src="cerebrovascular_img.png" class="navImage img-rounded">
+                    <a href="cerebrovascular.html" class="menuText">Cerebrovascular & Stroke</a>
+                </li>
+                <li id="epilepsy">
+                    <img src="epilepsy_img.png" class="navImage img-rounded">
+                    <a href="epilepsy.html" class="menuText">Epilepsy</a>
+                </li>
+                <li id="functional">
+                    <img src="functional_img.png" class="navImage img-rounded">
+                    <a href="functional.html" class="menuText">Functional & Stereotactic</a>
+                </li>
+                <li id="general">
+                    <img src="general_img.png" class="navImage img-rounded">
+                    <a href="general.html" class="menuText">General Neurosurgery</a>
+                </li>
+                <li id="pain">
+                    <img src="pain_img.png" class="navImage img-rounded">
+                    <a href="pain.html" class="menuText">Pain</a>
+                </li>
+                <li id="pediatric">
+                    <img src="pediatric_img.png" class="navImage img-rounded">
+                    <a href="pediatric.html" class="menuText">Pediatric & Hydrocephalus</a>
+                </li>
+                <li id="peripheral">
+                    <img src="peripheral_img.png" class="navImage img-rounded">
+                    <a href="peripheral.html" class="menuText">Peripheral Nerve</a>
+                </li>
+                <li id="spine">
+                    <img src="spine_img.png" class="navImage img-rounded">
+                    <a href="spine.html" class="menuText">Spine</a>
+                </li>
+                <li id="trauma">
+                    <img src="trauma_img.png" class="navImage img-rounded">
+                    <a href="trauma.html" class="menuText">Trauma & Critical Care</a>
+                </li>
+                <li id="tumor">
+                    <img src="tumor_img.png" class="navImage img-rounded">
+                    <a href="tumor.html" class="menuText">Tumor</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="well centered">
+            * This application currently contains <span id="numResources"></span> references. <br>
+            ** Easy-to-use summaries for all references are also available through the suite of <u>What’s the Data?</u> iPhone
+            applications, available on Apple’s App Store.
+        </div>
+        <div class="well centered">
+            Attributions
+            Image of the stereotactic apparatus of Spiegel and Wycis is a derivative of a graphic published by P.
+            Grunert, et al, From the Idea to Its Realization: The Evolution of Minimally Invasive Techniques in
+            Neurosurgery. Minimally Invasive Surgery, Volume 2013, Article ID 171369, used under CC BY. Image licensed
+            under CC BY by Limbix LLC.
+
+            CT scan image is a derivative of a graphic published by Hao Chen, et al, Progressive Epidural Hematoma in
+            Patients with Head Trauma: Incidence, Outcome, and Risk Factors. Emergency Medicine International, Volume
+            2012, Article ID 134905, used under CC BY. Image licensed under CC BY by Limbix LLC.
+        </div>
+    </div>
+</div>
+
+
+</body>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Functional & Stereotactic</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="../../public/index.js"></script>
+</head>
+<body>
+
+<script>
+    fetch("https://gliui2ynyk.execute-api.us-east-1.amazonaws.com/default/getCerebrovascularData")
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error("NETWORK RESPONSE ERROR");
+            }
+        })
+        .then(data => {
+            var allRetrievedData = retrieveAllData(data, 'Functional');
+            mC = document.getElementById('displayData');
+            mC.innerHTML = allRetrievedData;
+        })
+        .catch((error) => console.error("FETCH ERROR:", error));
+</script>
+
+<div class="container centered">
+    <div class="jumbotron clearfix content-heading functional">
+        <div class="col-sm-12 mx-auto"><img class="pull-left img-rounded" src="../functional_img.png"><h1>Functional & Stereotactic</h1></div>
+    </div>
+    <h4>Click on Summary for a brief synopsis</h4>
+    <h4>Click on Pubmed for an online abstract</h4>
+    <p></p>
+
+    <h3 class="listInstruction"> Major categories (click to jump to category):</h3>
+    <div id="displayData">
+
+    </div>
+</div>
+
+</body>
+
+

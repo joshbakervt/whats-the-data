@@ -13,12 +13,8 @@
     --title-bg: #091584;
     --trauma-bg: #21489C;
     --tumor-bg: #FB13F5;
-    --spine-font: #2927FF;
 
-}
 
-html, body {
-    scroll-behavior: smooth;
 }
 
 .wtd {
@@ -50,7 +46,6 @@ html, body {
     background: var(--pain-bg);
 }
 
-
 .pediatric {
     background: var(--pediatric-bg);
 }
@@ -60,7 +55,6 @@ html, body {
 }
 .spine {
     background: var(--spine-bg);
-    color: var(--spine-font);
 }
 .title {
     background: var(--title-bg);
@@ -135,10 +129,7 @@ table {
 }
 .titleImg {
     height: 15vw;
-    width: 150px;
-    height: 150px;
 }
-
 th {
     position: sticky;
     top: 0;
@@ -147,15 +138,6 @@ th {
 
 .centered {
     text-align: center;
-}
-
-.backButton {
-    font-size: 1.3em;
-}
-
-.regionLinks {
-    max-height: 30vw;
-    overflow-y: scroll;
 }
 
 .menuText {

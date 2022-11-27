@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>General</title>
+    <title>Tumor</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -22,7 +22,7 @@
             }
         })
         .then(data => {
-            var allRetrievedData = retrieveAllData(data, 'General');
+            var allRetrievedData = retrieveAllData(data, 'Tumor');
             mC = document.getElementById('displayData');
             mC.innerHTML = allRetrievedData;
         })
@@ -30,8 +30,9 @@
 </script>
 
 <div class="container centered">
-    <div class="jumbotron clearfix content-heading general">
-        <div class="col-sm-12 mx-auto"><img class="pull-left img-rounded" src="../../src/assets/general_img.png"><h1>General Neurosurgery</h1></div>
+    <div class="jumbotron clearfix content-heading tumor">
+        <div class="col-sm-2"><img class="pull-left img-rounded" src="../tumor_img.png"></div>
+        <div class="col-sm-10 mx-auto"><h1>Tumor</h1></div>
     </div>
     <h4>Click on Summary for a brief synopsis</h4>
     <h4>Click on Pubmed for an online abstract</h4>

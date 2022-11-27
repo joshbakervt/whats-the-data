@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cerebrovascular & Stroke</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+
+<script>
+    fetch("https://gliui2ynyk.execute-api.us-east-1.amazonaws.com/default/getCerebrovascularData")
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error("NETWORK RESPONSE ERROR");
+            }
+        })
+        .then(data => {
+            var allRetrievedData = displayData(data);
+            mC = document.getElementById('displayData');
+            mC.innerHTML = allRetrievedData;
+        })
+        .catch((error) => console.error("FETCH ERROR:", error));
+</script>
+
+<div class="container-fluid">
+    &nbsp
+    <div class="container">
+        <button type="button" class="btn btn-light backButton">
+            <a href="index.html">Back</a>
+        </button>
+    </div>
+    &nbsp
+    <div class="container centered">
+
+        <div class="jumbotron centered clearfix content-heading copperplate cerebrovascular">
+            <img class="pull-left img-rounded titleImg" src="cerebrovascular_img.png">
+            <h1>Cerebrovascular & Stroke</h1>
+        </div>
+        <div class="container">
+            <h4>Click on Summary for a brief synopsis</h4>
+            <h4>Click on Pubmed for an online abstract</h4>
+        </div>
+
+        <p></p>
+
+        <h3 class="listInstruction"> Major categories (click to jump to category):</h3>
+        <div id="displayData">
+
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+
+

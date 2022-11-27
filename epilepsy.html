@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Spine</title>
+    <title>Epilepsy</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../index.css">
+    <link rel="stylesheet" href="index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="../../public/index.js"></script>
+    <script src="index.js"></script>
 </head>
 <body>
 
 <script>
-    fetch("https://gliui2ynyk.execute-api.us-east-1.amazonaws.com/default/getCerebrovascularData")
+    fetch("https://qaoycdc0k8.execute-api.us-east-1.amazonaws.com/default/getEpilepsyData")
         .then((response) => {
             if (response.ok) {
                 return response.json();
@@ -22,16 +22,29 @@
             }
         })
         .then(data => {
-            var allRetrievedData = retrieveAllData(data, 'Spine');
-            mC = document.getElementById('displayData');
-            mC.innerHTML = allRetrievedData;
+            var retrievedData = displayData(data);
+            mc = document.getElementById('displayData');
+            mc.innerHTML = retrievedData;
+            // var allRetrievedData = retrieveData(data);
+            // mC = document.getElementById('displayData');
+            // mC.innerHTML = allRetrievedData;
         })
         .catch((error) => console.error("FETCH ERROR:", error));
 </script>
 
+<div class="container-fluid">
+    &nbsp
+    <div class="container">
+        <button type="button" class="btn btn-light backButton">
+            <a href="index.html">Back</a>
+        </button>
+    </div>
+    &nbsp
+
 <div class="container centered">
-    <div class="jumbotron clearfix content-heading spine">
-        <div class="col-sm-12 mx-auto"><img class="pull-left img-rounded" src="../../src/assets/spine_img.png"><h1>Spine</h1></div>
+    <div class="jumbotron centered clearfix content-heading copperplate epilepsy">
+        <img class="pull-left img-rounded titleImg" src="epilepsy_img.png">
+        <h1>Epilepsy</h1>
     </div>
     <h4>Click on Summary for a brief synopsis</h4>
     <h4>Click on Pubmed for an online abstract</h4>
@@ -42,7 +55,7 @@
 
     </div>
 </div>
-
+</div>
 </body>
 
 

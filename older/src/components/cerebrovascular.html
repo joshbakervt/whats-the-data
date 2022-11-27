@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Peripheral Nerve</title>
+    <title>Cerebrovascular & Stroke</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -22,7 +22,7 @@
             }
         })
         .then(data => {
-            var allRetrievedData = retrieveAllData(data, 'Peripheral nerve');
+            var allRetrievedData = retrieveAllData(data, 'Cerebrovascular');
             mC = document.getElementById('displayData');
             mC.innerHTML = allRetrievedData;
         })
@@ -30,9 +30,10 @@
 </script>
 
 <div class="container centered">
-    <div class="jumbotron clearfix content-heading peripheral">
-        <div class="col-sm-12 mx-auto"><img class="pull-left img-rounded" src="../../src/assets/peripheral_img.png"><h1>Peripheral Nerve</h1></div>
-    </div>
+    <div class="jumbotron centered clearfix content-heading copperplate cerebrovascular">
+        <img class="pull-left img-rounded titleImg" src="../cerebrovascular_img.png">
+        <h1>Cerebrovascular & Stroke</h1>
+        </div>
     <h4>Click on Summary for a brief synopsis</h4>
     <h4>Click on Pubmed for an online abstract</h4>
     <p></p>
