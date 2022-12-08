@@ -35,7 +35,7 @@ function displayData(data) {
             studyDataMap.set(strippedRegion, ("<tr><th class='regionHeader' colspan='8'><h2 id='" + currentID +"'>" + Object.values(data[i].region) + "</h2</th></tr>"));
             currentID += 1;
         }
-        if(Object.values(data[i].summary) == "N/A") {
+        if(Object.values(data[i].summary) === "N/A") {
             summary = "No summary found for this study";
         }
         else {
@@ -50,10 +50,10 @@ function displayData(data) {
         region = data[i].region;
 
         var summaryAsHTML = ("<tr id='" + (contentID.toString() + "collapse") + "'class='collapse'><td colspan='8'>" +
-            "<table>\
+            "<table id='" + (contentID.toString() + "summary") + "'>\
                 <tr>\
                     <td>\
-                        <h4 class='pull-left' style='text-align: left'><strong>" +
+                        <h4 class='pull-left summaryTable' style='text-align: left'><strong>" +
                             Object.values(data[i].author) + ", " + Object.values(data[i].reference) + " (" + longFormStudyType + ", n=" +
                             Object.values(data[i].size) + ")"
                             + "</strong></h4>\
@@ -61,65 +61,70 @@ function displayData(data) {
                 </tr>\
                 <tr>\
                     <td>\
-                        <h4><strong>Summary</strong></h4>\
+                        <h3 style='text-align: center'><strong>Summary</strong></h3>\
                     </td>\
                 </tr>\
                 <tr>\
-                    <td class='preline' style='text-align: left'><strong>" + summary + "</strong></td>\
-                </tr>\
-                <tr>\
-                    <td>\
-                        <h4><strong>Inclusion Criteria</strong></h4>\
-                    </td>\
-                </tr>\
-                <tr>\
-                    <td class='preline' style='text-align: left'>" + Object.values(data[i].inclusion) + "</td>\
-                </tr>\
-                <tr>\
-                    <td>\
-                        <h4><strong>Exclusion Criteria</strong></h4>\
-                    </td>\
-                </tr>\
-                <tr>\
-                    <td class='preline' style='text-align: left'>" + Object.values(data[i].exclusion) + "</td>\
-                </tr>\
-                <tr>\
-                    <td>\
-                        <h4><strong>Design/Intervention</strong></h4>\
-                    </td>\
-                </tr>\
-                <tr>\
-                    <td class='preline' style='text-align: left'>" + Object.values(data[i].design_intervention) + "</td>\
-                </tr>\
-                <tr>\
-                    <td>\
-                        <h4 ><strong>Follow Up</strong></h4>\
-                    </td>\
-                </tr>\
-                <tr>\
-                    <td class='preline' style='text-align: left'>" + Object.values(data[i].follow_up) + "</td>\
-                </tr>\
-                <tr>\
-                    <td>\
-                        <h4><strong>Results</strong></h4>\
-                    </td>\
-                </tr>\
-                <tr>\
-                    <td class='preline' style='text-align: left'>" + Object.values(data[i].results) + "</td>\
+                    <td class='preline pull-left summaryTable' style='text-align: left'><strong>" + summary + "</strong></td>\
                 </tr>\
                 \<tr>\
-                    <td class='preline' style='text-align: left'>&nbsp</td>\
+                    <td class='preline' style='text-align: left'><strong><br></strong></td>\
                 </tr>\
                 <tr>\
-                    <td class='preline' style='text-align: left'>&nbsp</td>\
+                    <td>\
+                        <h4  style='text-align: center'><strong>Inclusion Criteria</strong></h4>\
+                    </td>\
+                </tr>\
+                <tr>\
+                    <td class='preline pull-left summaryTable' style='text-align: left'>" + Object.values(data[i].inclusion) + "</td>\
+                </tr>\
+                <tr>\
+                    <td>\
+                        <h4  style='text-align: center'><strong>Exclusion Criteria</strong></h4>\
+                    </td>\
+                </tr>\
+                <tr>\
+                    <td class='preline pull-left summaryTable' style='text-align: left'>" + Object.values(data[i].exclusion) + "</td>\
+                </tr>\
+                <tr>\
+                    <td>\
+                        <h4  style='text-align: center'><strong>Design/Intervention</strong></h4>\
+                    </td>\
+                </tr>\
+                <tr>\
+                    <td class='preline pull-left summaryTable' style='text-align: left'>" + Object.values(data[i].design_intervention) + "</td>\
+                </tr>\
+                <tr>\
+                    <td>\
+                        <h4 style='text-align: center'><strong>Follow Up</strong></h4>\
+                    </td>\
+                </tr>\
+                <tr>\
+                    <td class='preline pull-left summaryTable' style='text-align: left'>" + Object.values(data[i].follow_up) + "</td>\
+                </tr>\
+                <tr>\
+                    <td>\
+                        <h4 style='text-align: center'><strong>Results</strong></h4>\
+                    </td>\
+                </tr>\
+                <tr>\
+                    <td class='preline pull-left summaryTable' style='text-align: left'>" + Object.values(data[i].results) + "</td>\
+                </tr>\
+                \<tr>\
+                    <td class='preline pull-left summaryTable' style='text-align: left'>&nbsp</td>\
+                </tr>\
+                <tr>\
+                    <td class='preline pull-left summaryTable' style='text-align: left'>&nbsp</td>\
                 </tr>\
             </table></td></tr>");
 
+        let pubmedLink = Object.values(data[i].link).toString();
+        let editedLink = pubmedLink.replace(/\D/g,'');
         studiesAsHTML = (
             // "<tr><td style='text-decoration: underline'><strong><a href=" + data[i].link + " target=\"_blank\">Summary</strong></td> \
             "<tr><td><button data-toggle='collapse' data-target='#" + (contentID.toString() + "collapse") + "'>Summary</button></td> \
-            <td><a href='summary.php?allData=123' target='_blank'><span class='glyphicon glyphicon-new-window'></span></a></td>\
-            <td style='text-decoration: underline'><strong><a href=" + Object.values(data[i].link) + " target=\"_blank\">Pubmed</strong></td>\
+            <td><button onclick='openSummary(\"" + (contentID.toString() + "summary") + "\")'><span class='glyphicon glyphicon-new-window' style='color: var(--primary)'></span></button></td>\
+            <td><strong><button style='color: var(--primary)' onclick='openPubmed(\"" + editedLink + "\")'>Pubmed</strong></td>\
             <td>" + Object.values(data[i].description) + "</td>\
             <td>" + longFormStudyType + "</td>\
             <td> n=" + Object.values(data[i].size) + "</td>\
@@ -144,7 +149,47 @@ function displayData(data) {
     return (regionLinksTable + studyDataTable);
 }
 
-
+// <td><button onclick=\"openSummary(" + summaryAsHTML + ")\"><span class='glyphicon glyphicon-new-window'></span></button></td>\
 function getResources(data) {
     return data.length;
+}
+
+function openPubmed(value) {
+    let pubmedLink = "https://pubmed.ncbi.nlm.nih.gov/";
+    let link = pubmedLink.concat("", value);
+    window.open(link, '_blank');
+}
+
+function openSummary(id) {
+    console.log(id);
+    let text = document.getElementById(id).innerHTML;
+    console.log(text);
+    var summaryWindow = window.open('summary.html', '_blank');
+    summaryWindow.document.write(
+        "<!DOCTYPE html>\n" +
+        "<html lang=\"en\">\n" +
+        "<head>\n" +
+        "    <title>What's The Data?</title>\n" +
+        "    <meta charset=\"UTF-8\">\n" +
+        "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n" +
+        "    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css\">\n" +
+        "    <link rel=\"stylesheet\" href=\"index.css\">\n" +
+        "    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>\n" +
+        "    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>\n" +
+        "    <script src=\"index.js\"></script>\n" +
+        "\n" +
+        "</head>\n" +
+        "<body>\n" +
+        "\n" +
+        "<div class=\"container\">\n" +
+        "    <div>\n" +
+        "        <table id=\"summaryContent\">\n" +
+        text +
+        "        </table>\n" +
+        "    </div>\n" +
+        "</div>\n" +
+        "\n" +
+        "</body>\n" +
+        "</html>"
+    );
 }
