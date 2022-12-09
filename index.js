@@ -50,7 +50,7 @@ function displayData(data) {
         region = data[i].region;
 
         var summaryAsHTML = ("<tr id='" + (contentID.toString() + "collapse") + "'class='collapse'><td colspan='8'>" +
-            "<table id='" + (contentID.toString() + "summary") + "'>\
+            "<table class='table' id='" + (contentID.toString() + "summary") + "'>\
                 <tr>\
                     <td>\
                         <h4 class='pull-left summaryTable' style='text-align: left'><strong>" +
@@ -122,14 +122,14 @@ function displayData(data) {
         let editedLink = pubmedLink.replace(/\D/g,'');
         studiesAsHTML = (
             // "<tr><td style='text-decoration: underline'><strong><a href=" + data[i].link + " target=\"_blank\">Summary</strong></td> \
-            "<tr><td><button data-toggle='collapse' data-target='#" + (contentID.toString() + "collapse") + "'>Summary</button></td> \
-            <td><button onclick='openSummary(\"" + (contentID.toString() + "summary") + "\")'><span class='glyphicon glyphicon-new-window' style='color: var(--primary)'></span></button></td>\
+            "<tr><td><button data-toggle='collapse' data-target='#" + (contentID.toString() + "collapse") + "' title='Expand'>Summary</button></td> \
+            <td><button onclick='openSummary(\"" + (contentID.toString() + "summary") + "\")'><span class='glyphicon glyphicon-new-window' title='Open summary in a new tab' style='color: var(--primary)'></span></button></td>\
             <td><strong><button style='color: var(--primary)' onclick='openPubmed(\"" + editedLink + "\")'>Pubmed</strong></td>\
             <td>" + Object.values(data[i].description) + "</td>\
-            <td>" + longFormStudyType + "</td>\
-            <td> n=" + Object.values(data[i].size) + "</td>\
-            <td>" + Object.values(data[i].author) + "</td>\
-            <td>" + Object.values(data[i].reference) + "</td></tr>" + summaryAsHTML);
+            <td class='hidden-xs'>" + longFormStudyType + "</td>\
+            <td class='hidden-xs'> n=" + Object.values(data[i].size) + "</td>\
+            <td class='hidden-sm hidden-xs'>" + Object.values(data[i].author) + "</td>\
+            <td class='hidden-md hidden-sm hidden-xs'>" + Object.values(data[i].reference) + "</td></tr>" + summaryAsHTML);
         studyDataMap.set(strippedRegion, (studyDataMap.get(strippedRegion) + studiesAsHTML));
         contentID += 1;
         // For each element in studyDataHTML, don't forget to add a table
@@ -138,7 +138,8 @@ function displayData(data) {
     for(const [key, value] of regionLinks) {
         regionLinksTable += value;
     }
-    regionLinksTable += "</table id='regionData'> </div>";
+    regionLinksTable += "</table class='table' id='regionData'> </div>";
+    regionLinksTable += "<div class=container hidden-md hidden-lg><p><br>&nbsp &nbsp</p></div>"
 
     var studyDataTable = "<table class='table table-hover table-responsive'>";
     for(const [key, value] of studyDataMap) {

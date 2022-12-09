@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>What's The Data?</title>
+    <link rel="shortcut icon" href="/title_img.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -15,7 +16,8 @@
 
 <div class="container">
     <div class="jumbotron centered clearfix content-heading copperplate title">
-    <img class="pull-left img-rounded" src="title_img.png">
+    <img class="centered img-rounded hidden-md hidden-lg smallerImg" src="title_img.png">
+    <img class="pull-left img-rounded hidden-xs hidden-sm largerImg" src="title_img.png">
         <div class="container wtd">
             <h1>WHAT'S THE DATA<span style="color: red;" class="question">?</span></h1>
             <h2>Web Resource</h2>
@@ -23,6 +25,29 @@
         </div>
 
     </div>
+
+        <script>
+            fetch("https://165bj2twte.execute-api.us-east-1.amazonaws.com/default/visitCountApi")
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error("NETWORK RESPONSE ERROR");
+                    }
+                })
+                .then(data => {
+                    console.log(data);
+                    displayVisitCount(data)
+                })
+                .catch((error) => console.error("FETCH ERROR:", error));
+
+            function displayVisitCount(data) {
+                const displayData = document.getElementById('visitor-number');
+                displayData.innerHTML = data;
+            }
+        </script>
+
+
 
     <script>
         fetch("https://gliui2ynyk.execute-api.us-east-1.amazonaws.com/default/getCerebrovascularData")
@@ -43,49 +68,50 @@
 
     <div class="container">
         <nav>
-            <ul class="indexNav">
-                <li id="cerebrovascular" >
+            <ul class="indexNav" class="aligned">
+                <li id="cerebrovascular" class="aligned">
                     <img src="cerebrovascular_img.png" class="navImage img-rounded">
                     <a href="cerebrovascular.html" class="menuText">Cerebrovascular & Stroke</a>
                 </li>
-                <li id="epilepsy">
+                <li id="epilepsy" class="aligned">
                     <img src="epilepsy_img.png" class="navImage img-rounded">
                     <a href="epilepsy.html" class="menuText">Epilepsy</a>
                 </li>
-                <li id="functional">
+                <li id="functional" class="aligned">
                     <img src="functional_img.png" class="navImage img-rounded">
                     <a href="functional.html" class="menuText">Functional & Stereotactic</a>
                 </li>
-                <li id="general">
+                <li id="general" class="aligned">
                     <img src="general_img.png" class="navImage img-rounded">
                     <a href="general.html" class="menuText">General Neurosurgery</a>
                 </li>
-                <li id="pain">
+                <li id="pain" class="aligned">
                     <img src="pain_img.png" class="navImage img-rounded">
                     <a href="pain.html" class="menuText">Pain</a>
                 </li>
-                <li id="pediatric">
+                <li id="pediatric" class="aligned">
                     <img src="pediatric_img.png" class="navImage img-rounded">
                     <a href="pediatric.html" class="menuText">Pediatric & Hydrocephalus</a>
                 </li>
-                <li id="peripheral">
+                <li id="peripheral" class="aligned">
                     <img src="peripheral_img.png" class="navImage img-rounded">
                     <a href="peripheral.html" class="menuText">Peripheral Nerve</a>
                 </li>
-                <li id="spine">
+                <li id="spine" class="aligned">
                     <img src="spine_img.png" class="navImage img-rounded">
                     <a href="spine.html" class="menuText">Spine</a>
                 </li>
-                <li id="trauma">
+                <li id="trauma" class="aligned">
                     <img src="trauma_img.png" class="navImage img-rounded">
                     <a href="trauma.html" class="menuText">Trauma & Critical Care</a>
                 </li>
-                <li id="tumor">
+                <li id="tumor" class="aligned">
                     <img src="tumor_img.png" class="navImage img-rounded">
                     <a href="tumor.html" class="menuText">Tumor</a>
                 </li>
             </ul>
         </nav>
+
         <div class="well centered">
             * This application currently contains <span id="numResources"></span> references. <br>
             ** Easy-to-use summaries for all references are also available through the suite of
@@ -105,33 +131,62 @@
             Patients with Head Trauma: Incidence, Outcome, and Risk Factors. Emergency Medicine International, Volume
             2012, Article ID 134905, used under CC BY. Image licensed under CC BY by Limbix LLC.
         </div>
-        <div class="well centered">
-            <script>
-                fetch("https://165bj2twte.execute-api.us-east-1.amazonaws.com/default/visitCountApi")
-                    .then((response) => {
-                        if (response.ok) {
-                            return response.json();
-                        } else {
-                            throw new Error("NETWORK RESPONSE ERROR");
-                        }
-                    })
-                    .then(data => {
-                        console.log(data);
-                        displayVisitCount(data)
-                    })
-                    .catch((error) => console.error("FETCH ERROR:", error));
-
-                function displayVisitCount(data) {
-                    const displayData = document.getElementById('visitor-number');
-                    displayData.innerHTML = data;
-                }
-            </script>
-            You are visitor #<span id="visitor-number"></span>
-        </div>
-
 
     </div>
 </div>
 
+<script>
+    $(document).ready(function(){
+        $("#myModal").modal('show');
+    });
+</script>
+
+<div id="myModal" class="modal custom fade-scale" tabindex="-1" role="alert" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="getlaid" id="trackModalLabel">Hi, Visitor #<span id="visitor-number"></span>!</h3>
+            </div>
+            <div class="modal-body">
+                <p class="modalOverflow hideScrollbar">
+                    Welcome to the <u>What’s the Data? Web Resource</u>, a curated collection of clinical literature pertaining to
+                    neurosurgery, neuro-oncology, spinal surgery, stroke neurology, and other related disciplines. Here you
+                    will find an organized repository of many of the higher quality studies that help to shape medical
+                    practice. This site is not, and is not intended to be, comprehensive. Important studies may be
+                    excluded, and studies that are included may have been superseded by newer information. The
+                    authors also cannot attest to the accuracy or completeness of each summary entry. Therefore, this
+                    site should not be used in connection with the day-to-day practice of medicine, and the authors
+                    assume no responsibility for its misuse in this way. The authors hope that this resource may provide a
+                    useful framework for educators seeking to foster critical thinking and learners who desire a deeper
+                    understanding than clinical guidelines can provide.
+                    <br> &nbsp <br>
+                    iPhone users are invited to investigate the suite of What’s the Data? Apps, available on the Apple App
+                    Store, which provide helpful summaries of these studies in a quick and easy-to-read format.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary closeButton" data-dismiss="modal">I Agree</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $(document).ready(function () {
+            // If not 'Confirmed', show #myModal
+            if (sessionStorage.Alert !== 'Confirmed') {
+                $('#myModal').show();
+            }
+        });
+
+        $('#myModal .closeButton').click(function () {
+            // Set 'Alert' to 'Confirmed' when user click the close button
+            sessionStorage.Alert = "Confirmed";
+            $(this).closest('#myModal').hide();
+        });
+    });
+</script>
 
 </body>
+
+</html>

@@ -9,3 +9,16 @@ What's the Data? Is a web resource for neuroscience students to access 2000+ Pub
 ![Alt text](older/src/assets/readme_img/cerebrovascular.png)
 ![Alt text](older/src/assets/readme_img/data_viewing.png)
 ![Alt text](older/src/assets/readme_img/architecture.png)
+
+TODO
+
+- Web integration
+- spacing 
+- Session modal
+- Visit count
+- center jumbotrons
+- apostrophe
+- coming soon under cerebrovascular
+- neurosurgery spinning wheel
+- time 
+- link to web resource
